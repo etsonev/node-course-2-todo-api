@@ -10,8 +10,8 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
 	// db
 	// 	.collection('Todos')
 	// 	.insertOne({
-	// 		text: 'Cook something',
-	// 		completed: true
+	// 		text: 'Eat lunch',
+	// 		completed: false
 	// 	}, (err, result) => {
 	// 		if(err) {
 	// 			return console.log('Unable to insert todo', err);
@@ -31,7 +31,7 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
 				return console.log('Unable to insert user', err);
 			}
 
-			console.log(JSON.stringify(result.ops[0]._id.getTimestamp(), undefined, 2));
+			console.log(JSON.stringify(result.ops, undefined, 2));
 		});
 
 	db.close();
