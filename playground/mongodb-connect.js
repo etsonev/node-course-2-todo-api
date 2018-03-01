@@ -5,7 +5,12 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
 		return console.log('Unable to connect to MongoDB server');
 	}
 
+
 	console.log('Connected to MongoDB server');
+
+	db
+		.collection('Todos')
+		.drop();
 
 	// db
 	// 	.collection('Todos')
@@ -20,19 +25,19 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db) => {
 	// 		console.log(JSON.stringify(result.ops, undefined, 2));
 	// 	});
 
-	db
-		.collection('Users')
-		.insertOne({
-			name: 'Milen',
-			age: 22,
-			location: 'Bulgaria'
-		}, (err, result) => {
-			if(err) {
-				return console.log('Unable to insert user', err);
-			}
+	// db
+	// 	.collection('Users')
+	// 	.insertOne({
+	// 		name: 'Milen',
+	// 		age: 22,
+	// 		location: 'Bulgaria'
+	// 	}, (err, result) => {
+	// 		if(err) {
+	// 			return console.log('Unable to insert user', err);
+	// 		}
 
-			console.log(JSON.stringify(result.ops, undefined, 2));
-		});
+	// 		console.log(JSON.stringify(result.ops, undefined, 2));
+	// 	});
 
 	db.close();
 });
