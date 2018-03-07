@@ -17,7 +17,10 @@ beforeEach((done) => {
 		.remove({})
 		.then(() => {
 			return Todo
-				.insertMany(todos);
+				.insertMany(todos)
+				.then((todo) => {
+					console.log(todo);
+				});
 		})
 		.then(() => done());
 });
